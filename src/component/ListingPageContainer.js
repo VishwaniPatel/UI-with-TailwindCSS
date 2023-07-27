@@ -12,15 +12,15 @@ function ListingPageContainer(props) {
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.get(
-        `https://newsapi.org/v2/everything?q=reactjs&from=2023-06-26&sortBy=publishedAt&language=en&apiKey=f189294f53bf4073b0bf49bffdbf0e7c&pageSize=3&page=${currPage}`
+        `https://inshorts.com/api/in/en/news?category=top_stories&max_limit=10&include_card_data=true`
       );
-      console.log(response.data.articles, "<<<");
+      console.log(response.data.data.news_list, "<<<");
       if (!response.data.articles) {
         setLastList(true);
         return;
       }
       setPrevPage(currPage);
-      setUserList([...userList, ...response.data.articles]);
+      setUserList([...userList, ...response.data.data.news_list]);
     };
     if (!lastList && prevPage !== currPage) {
       fetchData();

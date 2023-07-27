@@ -8,10 +8,12 @@ function App() {
   return (
     <>
       <Header></Header>
-      <div className="container mx-auto">
-        {/* <Main></Main> */}
-        <InfiniteScroll />
-        {/* <ListingPageContainer /> */}
+      <div className="dark:bg-dark">
+        <div className="container mx-auto">
+          {/* <Main></Main> */}
+          <InfiniteScroll />
+          {/* <ListingPageContainer /> */}
+        </div>
       </div>
     </>
   );
