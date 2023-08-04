@@ -1,4 +1,17 @@
+import { HeartIcon } from "@heroicons/react/24/outline";
+import LikeButton from "./LikeButton";
 export default function CardUI({ data }) {
+  const date = new Date(data.news_obj.created_at);
+  const options = {
+    hour: "numeric",
+    minute: "numeric",
+    hour12: true,
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+    weekday: "long",
+  };
+  const formattedDate = new Intl.DateTimeFormat("en-US", options).format(date);
   return (
     <div className=" mx-auto max-w-7xl px-2 sm:px-6 py-4 lg:px-8 shadow-md my-10 flex bg-white dark:bg-slate-800">
       <div className="h-[16rem] w-1/3 bg-cover bg-center rounded-md me-4 overflow-hidden">
@@ -10,8 +23,9 @@ export default function CardUI({ data }) {
         <h3 className="text-2xl font-semibold">{data.news_obj.title}</h3>
         <h3 className="text-sm">
           <span className="font-bold">short by</span>{" "}
-          {data.news_obj.author_name} / {data.news_obj.created_at}
+          {data.news_obj.author_name} / {formattedDate}
         </h3>
+
         {/* <p className="text-gray-600">{data.news_obj}</p> */}
         <p className="text-gray-600">{data.news_obj.content}</p>
 
@@ -24,6 +38,7 @@ export default function CardUI({ data }) {
             {data.news_obj.source_name}
           </a>
         </h6>
+        <LikeButton newsId={data.hash_id} />
       </div>
     </div>
   );

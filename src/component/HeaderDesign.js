@@ -16,7 +16,7 @@ function classNames(...classes) {
 
 export default function Header() {
   return (
-    <Disclosure as="nav" className="bg-gray-800 dark:bg-white px-4">
+    <Disclosure as="nav" className="bg-dark dark:bg-white px-4">
       {({ open }) => (
         <>
           <div className="mx-auto max-w-7xl pbg-blue ">
@@ -60,6 +60,7 @@ export default function Header() {
                   </div>
                 </div>
               </div>
+              <ThemeSwitcher />
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                 <button
                   type="button"
@@ -68,7 +69,7 @@ export default function Header() {
                   <span className="sr-only">View notifications</span>
                   <BellIcon className="h-6 w-6" aria-hidden="true" />
                 </button>
-                <ThemeSwitcher />
+
                 {/* Profile dropdown */}
                 <Menu as="div" className="relative ml-3">
                   <div>
