@@ -18,7 +18,7 @@ function App() {
           {/* <ListingPageContainer /> */}
           <ul>
             <li>
-              <button onClick={loginWithPopup}>Login with Popup</button>
+              <button onClick={loginWithPopup}>Login with POP-UP</button>
             </li>
             <li>
               <button onClick={loginWithRedirect}>Login with Redirect</button>
