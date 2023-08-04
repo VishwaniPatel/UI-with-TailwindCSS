@@ -1,18 +1,11 @@
-import { HeartIcon } from "@heroicons/react/24/outline";
+import { BookmarkIcon, HeartIcon } from "@heroicons/react/24/outline";
 import LikeButton from "./LikeButton";
+
 export default function NewsAPICard({ data }) {
+
   console.log(data);
-  //   const date = new Date(data.news_obj.created_at);
-  //   const options = {
-  //     hour: "numeric",
-  //     minute: "numeric",
-  //     hour12: true,
-  //     day: "numeric",
-  //     month: "short",
-  //     year: "numeric",
-  //     weekday: "long",
-  //   };
-  //   const formattedDate = new Intl.DateTimeFormat("en-US", options).format(date);
+
+
   return (
     <div className=" mx-auto max-w-7xl px-2 sm:px-6 py-4 lg:px-8 shadow-md my-10 flex bg-white dark:bg-slate-800">
       <div className="h-[16rem] w-1/3 bg-cover bg-center rounded-md me-4 overflow-hidden">
@@ -45,6 +38,7 @@ export default function NewsAPICard({ data }) {
         </h6>
         <span>
           <LikeButton />
+          <BookmarkIcon className="h-6 w-6" />
         </span>
       </div>
     </div>

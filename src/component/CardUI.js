@@ -1,5 +1,6 @@
-import { HeartIcon } from "@heroicons/react/24/outline";
+import { BookmarkIcon, HeartIcon } from "@heroicons/react/24/outline";
 import LikeButton from "./LikeButton";
+import { postNewsData } from './../services/saveNewsDataService'
 export default function CardUI({ data }) {
   const date = new Date(data.news_obj.created_at);
   const options = {
@@ -12,6 +13,20 @@ export default function CardUI({ data }) {
     weekday: "long",
   };
   const formattedDate = new Intl.DateTimeFormat("en-US", options).format(date);
+
+
+
+  const { news_obj } = data;
+
+  const { image_url, title, author_name, created_at, content, source_url, source_name, ...rest } = news_obj
+
+  const newsdata = { image_url, title, author_name, created_at, content, source_url, source_name }
+
+  const saveNewsDataHandler = () => {
+    postNewsData(newsdata);
+  }
+  // console.log(data);
+
   return (
     <div className=" mx-auto max-w-7xl px-2 sm:px-6 py-4 lg:px-8 shadow-md my-10 flex bg-white dark:bg-slate-800">
       <div className="h-[16rem] w-1/3 bg-cover bg-center rounded-md me-4 overflow-hidden">
@@ -38,8 +53,12 @@ export default function CardUI({ data }) {
             {data.news_obj.source_name}
           </a>
         </h6>
+
         <LikeButton newsId={data.hash_id} />
+        <BookmarkIcon className="h-6 w-6" onClick={saveNewsDataHandler} />
       </div>
+
+
     </div>
   );
 }
